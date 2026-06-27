@@ -1,9 +1,10 @@
 # 🚀 Frontend Developer Portfolio
 
-A modern, sleek, and fully responsive personal portfolio website built with **HTML5** and **CSS3**. Designed with a dark theme, smooth micro-animations, and a premium visual identity — perfect for showcasing frontend development skills and projects.
+A modern, sleek, and fully responsive personal portfolio website built with **HTML5**, **CSS3**, and **vanilla JavaScript**. Designed with a dark theme, smooth micro-animations, and a premium visual identity — perfect for showcasing frontend development skills and projects.
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![Responsive](https://img.shields.io/badge/Responsive-00C853?style=for-the-badge&logo=google-chrome&logoColor=white)
 
 ---
@@ -11,12 +12,13 @@ A modern, sleek, and fully responsive personal portfolio website built with **HT
 ## ✨ Features
 
 - **Dark Theme** — A carefully curated dark color palette with purple/cyan accent gradients
-- **Fully Responsive** — Adapts seamlessly across desktop, tablet, and mobile (breakpoints at 992px, 640px, 400px)
+- **Fully Responsive** — Adapts seamlessly across desktop, tablet, and mobile (breakpoints at 1024px, 768px, 480px)
+- **Hamburger Menu** — Animated hamburger icon with a slide-down mobile navigation drawer (backdrop-blur glassmorphism), auto-closes on link click or outside tap
 - **Smooth Animations** — Floating hero shapes, hover transforms, gradient glows, and transition effects
 - **CSS Custom Properties** — Complete design token system for colors, typography, spacing, and more
 - **Semantic HTML** — Accessible, well-structured markup with proper heading hierarchy and ARIA labels
 - **Google Fonts** — Uses [Inter](https://fonts.google.com/specimen/Inter) (body) and [Outfit](https://fonts.google.com/specimen/Outfit) (headings) for a modern typographic feel
-- **No JavaScript Required** — Pure HTML + CSS implementation
+- **Minimal JavaScript** — Lightweight inline `<script>` for the hamburger toggle only; no external dependencies
 
 ---
 
@@ -35,15 +37,16 @@ A modern, sleek, and fully responsive personal portfolio website built with **HT
 
 ## 🛠️ Tech Stack
 
-| Technology        | Usage                                       |
-|-------------------|---------------------------------------------|
-| HTML5             | Semantic structure & content                |
-| CSS3              | Styling, layout, animations                 |
-| CSS Flexbox       | Navigation, buttons, stat counters          |
-| CSS Grid          | Hero, about, skills, projects, contact grids|
-| CSS Custom Props  | Design tokens & theming                     |
-| Google Fonts      | Inter & Outfit typefaces                    |
-| SVG               | Skill icons, contact icons, social icons    |
+| Technology        | Usage                                          |
+|-------------------|------------------------------------------------|
+| HTML5             | Semantic structure & content                   |
+| CSS3              | Styling, layout, animations                    |
+| JavaScript (ES6)  | Hamburger menu toggle & outside-click handling |
+| CSS Flexbox       | Navigation, buttons, stat counters             |
+| CSS Grid          | Hero, about, skills, projects, contact grids   |
+| CSS Custom Props  | Design tokens & theming                        |
+| Google Fonts      | Inter & Outfit typefaces                       |
+| SVG               | Skill icons, contact icons, social icons       |
 
 ---
 
@@ -51,7 +54,7 @@ A modern, sleek, and fully responsive personal portfolio website built with **HT
 
 ```
 FrontendDev-P1/
-├── index.html              # Main HTML file (all sections)
+├── index.html              # Main HTML file (all sections + inline JS)
 ├── style.css               # Complete stylesheet with responsive breakpoints
 ├── images/
 │   ├── developer-hero.png      # Hero section profile image
@@ -98,21 +101,33 @@ The stylesheet uses a comprehensive **CSS Custom Properties** system:
 --ff-body:     'Inter', sans-serif;
 
 /* Breakpoints */
-/* Tablet:  max-width: 992px  */
-/* Mobile:  max-width: 640px  */
-/* Small:   max-width: 400px  */
+/* Large Tablet:  max-width: 1024px */
+/* Tablet:        max-width: 768px  */
+/* Mobile:        max-width: 480px  */
 ```
 
 ---
 
 ## 📱 Responsive Breakpoints
 
-| Breakpoint   | Target Device      | Key Layout Changes                                |
-|--------------|--------------------|---------------------------------------------------|
-| `≤ 992px`    | Tablet             | Single-column hero/about, 2-col skills & projects |
-| `≤ 640px`    | Mobile             | Single-column grids, stacked buttons              |
-| `≤ 400px`    | Small mobile       | Wrapped nav, vertical stat counters               |
+| Breakpoint   | Target Device            | Key Layout Changes                                                 |
+|--------------|--------------------------|--------------------------------------------------------------------|
+| `≤ 1024px`   | Large tablet / small desktop | 2-col skills grid, reduced hero image size                      |
+| `≤ 768px`    | Tablet                   | Hamburger menu, single-column hero/about/contact, 2-col projects   |
+| `≤ 480px`    | Mobile                   | Single-column grids, stacked buttons, vertical stat counters       |
 
 ---
 
-> *Built with ❤️ using just HTML & CSS*
+## 🍔 Hamburger Menu
+
+The mobile navigation uses a **hamburger button** that appears at `≤ 768px`:
+
+- **Animated icon** — Three bars transform into an **X** when active
+- **Slide-down drawer** — Navigation links appear in a frosted-glass dropdown with `backdrop-filter: blur(16px)`
+- **Auto-close** — Menu closes when a nav link is clicked or when tapping outside the header
+- **Accessible** — Uses `aria-label`, `aria-expanded`, and proper button semantics
+- **JavaScript** — A minimal inline `<script>` handles toggle, link-click close, and outside-click close
+
+---
+
+> *Built with ❤️ using HTML, CSS & vanilla JS*
